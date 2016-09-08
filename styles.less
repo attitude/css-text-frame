@@ -1,0 +1,239 @@
+// out: styles.css
+/* minifyOnSave */
+
+@import 'typographicss.less';
+
+.regular-text-mixin(@fs: 16, @lh: 24, @mt: 24, @mb: 24, @base: 16, @cap-height: 80) {
+    font-size: (@fs / @base * 1em);
+    line-height: (@lh / @fs * 1em) ;
+    margin-bottom: (@mb / @fs) * 1em;
+    margin-top: (@mt / @fs) * 1em;
+    position: relative;
+}
+
+html {
+    box-sizing: border-box;
+
+    * {
+        &, &:after, &::before {
+            box-sizing: inherit;
+        }
+    }
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#download-button {
+    background: #2196f3;
+    color: white;
+    font-weight: bold;
+    height: 9em;
+    line-height: 2em;
+    padding: 6em 4em 0 4em;
+    position: fixed;
+    right: 0;
+    text-decoration: none;
+    top: 0;
+    transform: translateY(-8em) rotateZ(45deg) translateX(50%);
+    transition: transform 300ms ease-out;
+}
+
+code,
+.ui-layout-guides-toggle {
+    background: #f2f2f2;
+    border: 1px solid #999;
+    border-radius: 0.25em;
+    padding: 0.5em 0.75em;
+}
+
+.ui-layout-guides-toggle {
+    background: #2196f3;
+    border-color: #2196f3;
+    color: white;
+}
+
+a {
+    color: #2196f3;
+}
+
+.hint {
+    font-size: 0.75em;
+}
+
+.ui-layout-guides-toggle {
+    padding: .5em;
+    position: absolute;
+    left: 1em;
+    text-transform: uppercase;
+    top: 1em;
+    z-index: 99999;
+
+    &:after {
+        content: "Toggle Grid";
+    }
+}
+
+.app {
+    margin: auto;
+    max-width: 60em;
+    text-align: center;
+
+    &-body {
+        overflow: hidden;
+
+        &-frames {
+            margin: 0 1em;
+            overflow: hidden;
+        }
+
+        &-frame {
+            &-left,
+            &-right {
+                overflow: hidden;
+                width: 50%;
+            }
+
+            &-left {
+                float: left;
+            }
+
+            &-right {
+                float: right;
+            }
+        }
+    }
+}
+
+.frame {
+    &-regular,
+    &-typographic {
+        background: #fc8;
+        margin: 2em 1em;
+        overflow: hidden;
+        outline: 1px solid #c93;
+        position: relative;
+        text-align: left;
+
+        h1, h2, h3, h4, h5, h6, p {
+            background: #fff;
+            background: fade(#fff, 50%);
+        }
+
+        &:before {
+            bottom: 0;
+            content: "";
+            display: block;
+            left: 0;
+            margin: 32px;
+            outline: 1px solid #c93;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+
+    &-outer {
+        background: #9e9;
+        background: fade(#9e9, 25%);
+        margin: 2em;
+    }
+
+    &-inner {
+        background: #fff;
+        background: fade(white, 25%);
+        margin: 0;
+    }
+}
+
+/* typographic */
+
+@base: 16;
+
+h6 {
+    .frame-regular & {
+        .regular-text-mixin(16, 24, 24, 24, 16, 70);
+    }
+    .frame-typographic & {
+        .typographicss-mixin(16, 24, 24, 24, 16, 70);
+    }
+}
+
+h5 {
+    .frame-regular & {
+        .regular-text-mixin(16 * 1.25, 24, 24, 24, 16, 70);
+    }
+    .frame-typographic & {
+        .typographicss-mixin(16 * 1.25, 24, 24, 24, 16, 70);
+    }
+}
+
+h4 {
+    .frame-regular & {
+        .regular-text-mixin(16 * 1.5, 24, 24, 24, 16, 70);
+    }
+    .frame-typographic & {
+        .typographicss-mixin(16 * 1.5, 24, 24, 24, 16, 70);
+    }
+}
+
+h3 {
+    .frame-regular & {
+        .regular-text-mixin(16 * 2, 32, 24, 24, 16, 70);
+    }
+    .frame-typographic & {
+        .typographicss-mixin(16 * 2, 32, 24, 24, 16, 70);
+    }
+}
+
+h2 {
+    .frame-regular & {
+        .regular-text-mixin(16 * 3, 48, 24, 24, 16, 70);
+    }
+    .frame-typographic & {
+        .typographicss-mixin(16 * 3, 48, 24, 24, 16, 70);
+    }
+}
+
+h1 {
+    .frame-regular & {
+        .regular-text-mixin(16 * 4, 24, 24, 24, 16, 70);
+    }
+    .frame-typographic & {
+        .typographicss-mixin(16 * 4, 24, 24, 24, 16, 70);
+    }
+}
+
+p {
+    .frame-regular & {
+        .regular-text-mixin(16, 24, 24, 24, 16, 70);
+    }
+    .frame-typographic & {
+        .typographicss-mixin(16, 24, 24, 24, 16, 70);
+    }
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    // &:after {
+    //     background: #f60;
+    //     bottom: -18px;
+    //     content: "32px";
+    //     display: block;
+    //     font-size: 16px;
+    //     font-weight: normal;
+    //     height: 32px;
+    //     left: 0;
+    //     line-height: 32px;
+    //     position: absolute;
+    //     right: 0;
+    //     text-align: center;
+    // }
+}

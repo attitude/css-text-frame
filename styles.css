@@ -1,0 +1,297 @@
+/* minifyOnSave */
+html {
+  box-sizing: border-box;
+}
+html *,
+html *:after,
+html *::before {
+  box-sizing: inherit;
+}
+body {
+  font-family: sans-serif;
+}
+#download-button {
+  background: #2196f3;
+  color: white;
+  font-weight: bold;
+  height: 9em;
+  line-height: 2em;
+  padding: 6em 4em 0 4em;
+  position: fixed;
+  right: 0;
+  text-decoration: none;
+  top: 0;
+  -webkit-transform: translateY(-8em) rotateZ(45deg) translateX(50%);
+      -ms-transform: translateY(-8em) rotate(45deg) translateX(50%);
+          transform: translateY(-8em) rotateZ(45deg) translateX(50%);
+  -webkit-transition: -webkit-transform 300ms ease-out;
+  transition: -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out;
+  transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
+}
+code,
+.ui-layout-guides-toggle {
+  background: #f2f2f2;
+  border: 1px solid #999;
+  border-radius: 0.25em;
+  padding: 0.5em 0.75em;
+}
+.ui-layout-guides-toggle {
+  background: #2196f3;
+  border-color: #2196f3;
+  color: white;
+}
+a {
+  color: #2196f3;
+}
+.hint {
+  font-size: 0.75em;
+}
+.ui-layout-guides-toggle {
+  padding: .5em;
+  position: absolute;
+  left: 1em;
+  text-transform: uppercase;
+  top: 1em;
+  z-index: 99999;
+}
+.ui-layout-guides-toggle:after {
+  content: "Toggle Grid";
+}
+.app {
+  margin: auto;
+  max-width: 60em;
+  text-align: center;
+}
+.app-body {
+  overflow: hidden;
+}
+.app-body-frames {
+  margin: 0 1em;
+  overflow: hidden;
+}
+.app-body-frame-left,
+.app-body-frame-right {
+  overflow: hidden;
+  width: 50%;
+}
+.app-body-frame-left {
+  float: left;
+}
+.app-body-frame-right {
+  float: right;
+}
+.frame-regular,
+.frame-typographic {
+  background: #fc8;
+  margin: 2em 1em;
+  overflow: hidden;
+  outline: 1px solid #c93;
+  position: relative;
+  text-align: left;
+}
+.frame-regular h1,
+.frame-typographic h1,
+.frame-regular h2,
+.frame-typographic h2,
+.frame-regular h3,
+.frame-typographic h3,
+.frame-regular h4,
+.frame-typographic h4,
+.frame-regular h5,
+.frame-typographic h5,
+.frame-regular h6,
+.frame-typographic h6,
+.frame-regular p,
+.frame-typographic p {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
+}
+.frame-regular:before,
+.frame-typographic:before {
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  margin: 32px;
+  outline: 1px solid #c93;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.frame-outer {
+  background: #9e9;
+  background: rgba(153, 238, 153, 0.25);
+  margin: 2em;
+}
+.frame-inner {
+  background: #fff;
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0;
+}
+/* typographic */
+.frame-regular h6 {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  position: relative;
+}
+.frame-typographic h6 {
+  font-size: 1em;
+  line-height: 1.5em;
+  bottom: -0.4em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  position: relative;
+}
+.frame-typographic h6:first-child {
+  margin-top: -0.8em;
+}
+.frame-typographic h6:last-child {
+  margin-bottom: 0;
+}
+.frame-regular h5 {
+  font-size: 1.25em;
+  line-height: 1.2em;
+  margin-bottom: 1.2em;
+  margin-top: 1.2em;
+  position: relative;
+}
+.frame-typographic h5 {
+  font-size: 1.25em;
+  line-height: 1.2em;
+  bottom: -0.25em;
+  margin-bottom: 1.2em;
+  margin-top: 1.2em;
+  position: relative;
+}
+.frame-typographic h5:first-child {
+  margin-top: -0.5em;
+}
+.frame-typographic h5:last-child {
+  margin-bottom: 0;
+}
+.frame-regular h4 {
+  font-size: 1.5em;
+  line-height: 1em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  position: relative;
+}
+.frame-typographic h4 {
+  font-size: 1.5em;
+  line-height: 1em;
+  bottom: -0.15em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  position: relative;
+}
+.frame-typographic h4:first-child {
+  margin-top: -0.3em;
+}
+.frame-typographic h4:last-child {
+  margin-bottom: 0;
+}
+.frame-regular h3 {
+  font-size: 2em;
+  line-height: 1em;
+  margin-bottom: 0.75em;
+  margin-top: 0.75em;
+  position: relative;
+}
+.frame-typographic h3 {
+  font-size: 2em;
+  line-height: 1em;
+  bottom: -0.15em;
+  margin-bottom: 0.75em;
+  margin-top: 0.75em;
+  position: relative;
+}
+.frame-typographic h3:first-child {
+  margin-top: -0.3em;
+}
+.frame-typographic h3:last-child {
+  margin-bottom: 0;
+}
+.frame-regular h2 {
+  font-size: 3em;
+  line-height: 1em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  position: relative;
+}
+.frame-typographic h2 {
+  font-size: 3em;
+  line-height: 1em;
+  bottom: -0.15em;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  position: relative;
+}
+.frame-typographic h2:first-child {
+  margin-top: -0.3em;
+}
+.frame-typographic h2:last-child {
+  margin-bottom: 0;
+}
+.frame-regular h1 {
+  font-size: 4em;
+  line-height: 0.375em;
+  margin-bottom: 0.375em;
+  margin-top: 0.375em;
+  position: relative;
+}
+.frame-typographic h1 {
+  font-size: 4em;
+  line-height: 0.375em;
+  bottom: 0.1625em;
+  margin-bottom: 0.375em;
+  margin-top: 0.375em;
+  position: relative;
+}
+.frame-typographic h1:first-child {
+  margin-top: 0.325em;
+}
+.frame-typographic h1:last-child {
+  margin-bottom: 0;
+}
+.frame-regular p {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  position: relative;
+}
+.frame-typographic p {
+  font-size: 1em;
+  line-height: 1.5em;
+  bottom: -0.4em;
+  margin-bottom: 1.5em;
+  margin-top: 1.5em;
+  position: relative;
+}
+.frame-typographic p:first-child {
+  margin-top: -0.8em;
+}
+.frame-typographic p:last-child {
+  margin-bottom: 0;
+}
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child,
+p:first-child {
+  margin-top: 0;
+}
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child,
+h6:last-child,
+p:last-child {
+  margin-bottom: 0;
+}

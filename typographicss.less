@@ -1,0 +1,17 @@
+// Never apply on containers. Should be applied on children like `p` tags
+.typographicss-mixin(@fs: 16, @lh: 24, @mt: 24, @mb: 24, @base: 16, @cap-height: 80) {
+    font-size: (@fs / @base * 1em);
+    line-height: (@lh / @fs * 1em) ;
+    bottom: (@lh - (@fs * @cap-height / 100)) / @fs / 2 * -1em;
+    margin-bottom: (@mb / @fs) * 1em;
+    margin-top: (@mt / @fs) * 1em;
+    position: relative;
+
+    &:first-child {
+      margin-top: (@lh - (@fs * @cap-height / 100)) / @fs * -1em;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+}
